@@ -1,0 +1,46 @@
+class PasswordResetsController < ApplicationController
+	def new
+	end
+
+	def create
+		# Comment. It would find a user by the email attribute. Assume that the email was submitted as a key in the request parameters.
+		user = User.find_by(email: params[:email])
+		if user
+			user.generate_password_reset_token!
+		# Comment. It properly calls the "password_reset" email for a user and deliver it.
+			Notifier.password_reset(user).deliver
+			flash.now[:success] = "Password reset instructions sent! Please check your email."
+			redirect_to login_path
+		else
+			flash.now[:notice] = "Email not found."
+			render action: 'new'
+		end
+	end
+
+	def edit
+		@user = User.find_by(password_reset_token: params[:id])
+		if @user
+		else
+			render file: 'public/404.html', status: :not_found
+		end
+	end
+
+	def update
+		@user = User.find_by(password_reset_token: params[:id])
+		if @user && @user.update_attributes(user_params)
+			@user.update_attribute(:password_reset_token, nil)
+			session[:user_id] = @user.id
+			redirect_to todo_lists_path, success: "Password updated."
+		else
+			# Comment. flash.now displays a flash method for the current request.
+			flash.now[:notice] = "Password reset token not found."
+			render action: 'edit'
+		end
+	end
+
+	private
+	def user_params
+		params.require(:user).permit(:password, :password_confirmation)
+	end
+
+end
