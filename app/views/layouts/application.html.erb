@@ -22,12 +22,8 @@
     <br class="clear" />
   </div>
 
-  <% flash.each do |type, message| %>
-  <div class="alert flash <%= type %>">
-    <%= message %>
-  </div>
-  <% end %>
-
+  <%= render partial: "layouts/flash" %>
+  
 <div class="content">
   <%= yield %>
 </div>
