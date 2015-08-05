@@ -1,28 +1,28 @@
-== README
+# Asset: Portfolio.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Live Site: http://odot-p.herokuapp.com/
 
-Things you may want to cover:
+Odot is a web app which is part of my portfolio, it was created following the course “Build a Todo List Application with Rails 4” and "User Authentication with Rails" from the track Rails Development in TeamTreeHouse.com.
 
-* Ruby version
+It is a simple todo-list application where users can create their own/private account within it create their todo lists with todo items. It's user authentication was created from scratch. It was developed on Ruby on Rails. Simple UI.
 
-* System dependencies
+# Gems
 
-* Configuration
+gem 'bcrypt-ruby', '~> 3.1.2'
 
-* Database creation
+group :development, :test
+  gem 'rspec-rails', '~> 2.0'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'sqlite3'
 
-* Database initialization
+group :test
+  gem 'capybara', '~> 2.1.0'
+  gem 'capybara-email', '~> 2.2.0'
+  gem 'shoulda-matchers', '~> 2.4.0'
+  
+group :production
+  gem 'pg'
 
-* How to run the test suite
+# Database
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Postgresql
