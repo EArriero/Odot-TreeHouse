@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
 gem 'bcrypt-ruby', '~> 3.1.2'
-gem 'sass-rails', '~> 5.0.0'
+gem 'sass-rails', '~> 5.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'foundation-rails', '~> 5.2.2'
+gem 'foundation-rails', '~> 5.5.2.1'
 
 group :development do
 	gem 'spring'

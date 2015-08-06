@@ -8,13 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require_tree .
  *= require_self
  *= require foundation_and_overrides
- *= require_tree .
- */
- @import "foundation_and_overrides";
-/* Add imports of custom sass/scss files here */
-
+*/
+ 
 div.alert {
   border: 2px solid #aaa;
   padding: 10px;
