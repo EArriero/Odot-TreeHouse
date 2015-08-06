@@ -181,6 +181,7 @@ DEPENDENCIES
   foundation-rails (~> 5.5.2.1)
   jbuilder (~> 1.2)
   jquery-rails
+  minitest
   pg
   quiet_assets (~> 1.0.2)
   rails (= 4.2.1)
