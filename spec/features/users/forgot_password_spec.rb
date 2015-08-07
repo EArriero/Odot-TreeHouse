@@ -17,7 +17,7 @@ describe "Forgotten passwords" do
 		click_link "Forgot Password"
 		fill_in "Email", with: user.email
 		click_button "Reset Password"
-		# Comment. These methods comefrom capybara-email.
+		# Comment. These methods come from capybara-email.
 		open_email(user.email)
 		current_email.click_link "http://"
 		expect(page).to have_content("Change Your Password")
