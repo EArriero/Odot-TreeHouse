@@ -1,6 +1,6 @@
 <%= title "Todo Lists" %>
 
-<ul class="todo-lists no-bullet">
+<ul class="list todo-lists no-bullet">
   <% @todo_lists.each do |todo_list| %>
   <!-- Comment. <%= dom_id(todo_list) %> will print a dynamic ID for use with the id attribute. -->
     <li id="<%= dom_id(todo_list) %>" class="clearfix">
