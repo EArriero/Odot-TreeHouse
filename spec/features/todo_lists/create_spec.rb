@@ -11,7 +11,7 @@ describe "Creating todo lists" do
     expect(page).to have_content("Add Todo List")
 
     fill_in "Title", with: options[:title]
-    click_button "Create Todo list"
+    click_button "Save"
   end
 
   before do
