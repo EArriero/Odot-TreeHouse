@@ -23,7 +23,7 @@ describe "Forgotten passwords" do
 		expect(page).to have_content("Change Your Password")
 
 		fill_in "Password", with: "mynewpassword1"
-		fill_in "Password (again)", with: "mynewpassword1"
+		fill_in "Password Confirmation", with: "mynewpassword1"
 		click_button "Change Password"
 		expect(page).to have_content("Password updated")
 		expect(page.current_path).to eq(todo_lists_path)

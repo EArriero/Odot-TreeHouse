@@ -6,20 +6,27 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
 
 	attr_accessor :output_buffer
 
- 	def text_field(attribute, options={})
- 		options [:label] ||= attribute
- 		label_text ||= options.delete(:label).to_s.titleize
- 		label_options ||= {}
- 		if errors_on?(attribute)
- 			label_options[:class] = "error"
- 			options[:class] = "error"
- 		end
- 		wrapper do 		
- 			label(attribute, label_text, label_options) +
- 			# Comment. super allow us get access to the original text field method.
- 			super(attribute, options) + errors_for_field(attribute)	
- 		end
- 	end
+	# Comment. The following line of code is metaprogramming, which occurs when a program can write features or data at runtime.
+	%w(email_field text_field password_field).each do |form_method|
+		# Comment. define_method is a Ruby method that defines a method using a string or symbol.
+		define_method(form_method) do |*args|
+			attribute = args[0]
+			options = args	[1] || {}
+
+			options [:label] ||= attribute.to_s.titleize
+	 		label_text ||= options.delete(:label)
+	 		label_options ||= {}
+	 		if errors_on?(attribute)
+	 			label_options[:class] = "error"
+	 			options[:class] = "error"
+	 		end
+	 		wrapper do 		
+	 			label(attribute, label_text, label_options) +
+	 			# Comment. super allow us get access to the original text field method.
+	 			super(attribute, options) + errors_for_field(attribute)	
+	 		end
+		end
+	end
 
  	def submit(text, options={})
  		options [:class] ||= "button radius expand"
@@ -35,6 +42,7 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
  	end
 
  	def errors_on?(attribute)
+ 		# Comment. The object property of a form builder gives access to the form object.
  		object.errors[attribute].size > 0
  	end
 
