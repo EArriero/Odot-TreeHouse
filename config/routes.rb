@@ -1,5 +1,5 @@
 Odot::Application.routes.draw do
-  get 'pages/home'
+  get "pages/home"
 
   get "/login" => "user_sessions#new", as: :login
   delete "/logout" => "user_sessions#destroy", as: :logout
@@ -16,6 +16,6 @@ Odot::Application.routes.draw do
       end
     end
   end
-  root 'pages#home'
+  root "pages#home"
 
   end
