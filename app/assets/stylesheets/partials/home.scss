@@ -14,7 +14,7 @@
 @media only screen and (min-width: 40.063em) {
 
 	.hero {
-		background: url(asset_path("home-iphone.png")) no-repeat 90% center;
+		background: image-url(asset_path("home-iphone.png")) no-repeat 90% center;
 		background-size: 400px;
 		height: 350px;
 		text-align: left;

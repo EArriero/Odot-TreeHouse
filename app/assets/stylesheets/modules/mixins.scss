@@ -1,6 +1,6 @@
 /* # Comment. A mixin lets you make groups of CSS declarations that I want to reuse throughout your site.*/
 @mixin icon($asset) {
-	background: url(asset_path(#{$asset})) no-repeat center center;
+	background: image-url(asset_path(#{$asset})) no-repeat center center;
 	background-size: contain;
 	display: block;
 	width: 24px;
