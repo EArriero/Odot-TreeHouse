@@ -6,8 +6,16 @@ class ApplicationController < ActionController::Base
   # Comment. The Rails "rescue_from" method allow a developer to catch exceptions.
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
+  # Comment. We use the following before_action together with set_a_flash_message action in order to test the messagesin development mode.
+  # before_action :set_a_flash_message
 
   private
+  # def set_a_flash_message
+  #   flash.now[:success] = "This is a great success!"
+  #   flash.now[:notice] = "This is a notice!"
+  #   flash.now[:error] = "This is an error!"
+  # end
+
   def go_back_link_to(path)
     @go_back_link_to ||= path
     @go_back_link_to
